@@ -43,11 +43,11 @@ class ChatApi {
   // Platform'a göre dinamik URL belirleme
   static String get _baseUrl {
     if (Platform.isAndroid) {
-      return "http://192.168.1.18:8000"; // Android emulator için
+      return "http://10.0.2.2:8000"; // Android emulator için
     } else if (Platform.isIOS) {
-      return "http://192.168.1.18:8000"; // iOS Simulator için
+      return "http://localhost:8000"; // iOS Simulator için
     } else {
-      return "http://192.168.1.18:8000"; // Masaüstü için
+      return "http://localhost:8000"; // Masaüstü için
     }
   }
 
@@ -55,7 +55,12 @@ class ChatApi {
 
   Future<bool> ping() async {
     try {
-      final res = await http.get(Uri.parse("$_baseUrl/health")).timeout(_timeout);
+      final res = await http.get(
+        Uri.parse("$_baseUrl/health"),
+        headers: {
+          "Accept": "application/json; charset=utf-8",
+        },
+      ).timeout(_timeout);
       return res.statusCode == 200;
     } catch (e) {
       print('API ping hatası: $e');
@@ -63,13 +68,42 @@ class ChatApi {
     }
   }
 
-  Future<String> sendMessage(String message) async {
+  Future<String> sendMessage(String message, {String? sessionId, List<ChatMessage>? history}) async {
     final uri = Uri.parse("$_baseUrl/chat");
-    final body = jsonEncode({"message": message});
-    final res = await http.post(uri, headers: {"Content-Type": "application/json"}, body: body).timeout(_timeout);
+
+    // Chat history'yi API formatına çevir
+    List<Map<String, String>>? apiHistory;
+    if (history != null) {
+      apiHistory = history
+          .map((msg) => {
+                "role": msg.isUser ? "user" : "assistant",
+                "content": msg.text,
+              })
+          .toList();
+    }
+
+    final body = jsonEncode({
+      "message": message,
+      if (sessionId != null) "session_id": sessionId,
+      if (apiHistory != null) "history": apiHistory,
+    });
+
+    final res = await http
+        .post(
+          uri,
+          headers: {
+            "Content-Type": "application/json; charset=utf-8",
+            "Accept": "application/json; charset=utf-8",
+          },
+          body: body,
+        )
+        .timeout(_timeout);
 
     if (res.statusCode == 200) {
-      return jsonDecode(res.body)['answer'];
+      // UTF-8 encoding sorununu çöz
+      final responseBody = utf8.decode(res.bodyBytes);
+      final decodedResponse = jsonDecode(responseBody);
+      return decodedResponse['answer'];
     } else {
       throw Exception("API error: ${res.body}");
     }

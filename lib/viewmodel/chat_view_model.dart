@@ -10,6 +10,7 @@ class ChatViewModel extends ChangeNotifier {
   bool _isLoading = false;
   bool _isApiConnected = false;
   bool _disposed = false;
+  String? _sessionId;
   final TextEditingController messageController = TextEditingController();
 
   List<ChatMessage> get messages => _messages;
@@ -18,6 +19,7 @@ class ChatViewModel extends ChangeNotifier {
 
   ChatViewModel() {
     _loadMessages();
+    _loadSessionId();
     _checkApiConnection();
   }
 
@@ -25,6 +27,21 @@ class ChatViewModel extends ChangeNotifier {
     _isApiConnected = await _api.ping();
     if (_disposed) return; // ViewMolel dispose edilmişse çık
     notifyListeners();
+  }
+
+  Future<void> _loadSessionId() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      _sessionId = prefs.getString('session_id');
+      if (_sessionId == null) {
+        // Yeni session ID oluştur
+        _sessionId = 'user-${DateTime.now().millisecondsSinceEpoch}';
+        await prefs.setString('session_id', _sessionId!);
+      }
+    } catch (e) {
+      print('Session ID yükleme hatası: $e');
+      _sessionId = 'user-${DateTime.now().millisecondsSinceEpoch}';
+    }
   }
 
   Future<void> sendMessage(String text) async {
@@ -42,8 +59,13 @@ class ChatViewModel extends ChangeNotifier {
     if (!_disposed) notifyListeners();
 
     try {
-      // Yeni API'yi kullan
-      final answer = await _api.sendMessage(text);
+      // Session ID ve chat history ile API'yi çağır
+      final answer = await _api.sendMessage(
+        text,
+        sessionId: _sessionId,
+        history: _messages.where((msg) => msg.type != 'error').toList(), // Error mesajları hariç
+      );
+
       final botMessage = ChatMessage(
         text: answer,
         isUser: false,
@@ -74,7 +96,21 @@ class ChatViewModel extends ChangeNotifier {
   void clearMessages() {
     _messages.clear();
     _saveMessages();
+    // Yeni session başlat
+    _sessionId = 'user-${DateTime.now().millisecondsSinceEpoch}';
+    _saveSessionId();
     if (!_disposed) notifyListeners();
+  }
+
+  Future<void> _saveSessionId() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      if (_sessionId != null) {
+        await prefs.setString('session_id', _sessionId!);
+      }
+    } catch (e) {
+      print('Session ID kaydetme hatası: $e');
+    }
   }
 
   Future<void> _saveMessages() async {

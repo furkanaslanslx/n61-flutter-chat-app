@@ -1,0 +1,54 @@
+{
+  "user-1750431702738": [
+    {
+      "role": "user",
+      "content": "selam been furkan"
+    },
+    {
+      "role": "assistant",
+      "content": "Merhaba! Nasıl yardımcı olabilirim?"
+    },
+    {
+      "role": "user",
+      "content": "benim ismim ne"
+    },
+    {
+      "role": "assistant",
+      "content": "Özür dilerim, sizin ismimizi bilmiyorum. Bana Furkan ismini siz verdiğiniz için öyle hitap ettim. Gerçek ismınızı bilmiyorum. Nasıl yardımcı olabilirim?"
+    },
+    {
+      "role": "user",
+      "content": "daha önce kaç mesaj attım sana"
+    },
+    {
+      "role": "assistant",
+      "content": "Daha önce 3 mesaj attınız bana."
+    },
+    {
+      "role": "user",
+      "content": "daha önceki mesajları yaz"
+    },
+    {
+      "role": "assistant",
+      "content": "Daha önceki mesajlarınızı hatırlatayım:\n\n1. \"selam been furkan\"\n2. \"benim ismim ne\"\n3. \"daha önce kaç mesaj attım sana\"\n\nKısaca hatırlatmak istedim!"
+    }
+  ],
+  "user-1750431822237": [
+    {
+      "role": "user",
+      "content": "sana kaç mesaj attım"
+    },
+    {
+      "role": "assistant",
+      "content": "Bana 2 mesaj attın."
+    },
+    {
+      "role": "user",
+      "content": "attığım mesajları yaz"
+    },
+    {
+      "role": "assistant",
+      "content": "İlk mesajın: \nsana kaç mesaj attım\n\nİkinci mesajın: \nattığım mesajları yaz"
+    }
+  ]
+}
