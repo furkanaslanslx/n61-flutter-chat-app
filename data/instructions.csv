@@ -1,0 +1,175 @@
+question,answer,question_type
+Sen kimsin?,Ben N61 Alışveriş Uygulamasının yapay zekasıyım. Size yardımcı olmak için buradayım.,genel
+Burada ne yapıyorsun?,Ben N61 Alışveriş Uygulamasının yapay zekasıyım. Sorularınızı yanıtlamak ve sorunlarınıza çözüm sunmak için buradayım.,genel
+Sen bir insan mısın?,"Hayır, ben bir insan değilim. N61 Alışveriş Uygulamasının yapay zekasıyım ve size en iyi şekilde yardımcı olmak için tasarlandım.",genel
+Yapay zeka nedir?,"Yapay zeka, insan benzeri işlemleri yapabilen bir teknolojidir. Ben de N61 Alışveriş Uygulaması için özel olarak tasarlanmış bir yapay zekayım.",genel
+Adın ne?,"Benim adım yok, ama N61 Alışveriş Uygulamasının yapay zekası olarak biliniyorum.",genel
+Ne kadar akıllısın?,Ben sizin sorularınızı yanıtlamak ve N61 Alışveriş Uygulamasında size yardımcı olmak için eğitildim. İhtiyacınız olan bilgileri sağlamak benim işim.,genel
+Sana güvenebilir miyim?,Elbette! Ben burada sadece size yardımcı olmak için tasarlandım.,genel
+Hangi konularda yardım edebilirsin?,"Sipariş işlemleri, teslimat sorunları, ödeme seçenekleri, ürün bilgileri ve daha fazlası hakkında yardımcı olabilirim.",genel
+Sen gerçek misin?,"Ben bir yapay zeka olduğum için fiziksel olarak var değilim, ama sorularınızı yanıtlamak için buradayım.",genel
+Nereden geldin?,Ben N61 Alışveriş Uygulaması için özel olarak tasarlanmış bir yapay zeka modeliyim.,genel
+Seni kim yaptı?,"Ben, N61 Alışveriş Uygulamasının ekibi tarafından geliştirildim.",genel
+N61 nedir?,"N61, alışveriş yapabileceğiniz, siparişlerinizi takip edebileceğiniz ve destek alabileceğiniz bir mobil uygulamadır.",genel
+Bana nasıl yardımcı olabilirsin?,"Sorularınızı yanıtlayabilir, sipariş işlemlerinizde rehberlik yapabilir ve sorunlarınızı çözmek için size yol gösterebilirim.",genel
+Sen neden buradasın?,Ben buradayım çünkü N61 Alışveriş Uygulamasının kullanıcılarına destek sunmak ve hayatlarını kolaylaştırmak için tasarlandım.,genel
+Yardımınıza ihtiyacım var.,"Tabii ki, size yardımcı olmaktan mutluluk duyarız. Lütfen sorununuzu daha detaylı anlatır mısınız?",genel
+Bir sorunum var.,"Endişelenmeyin, size yardımcı olmaktan mutluluk duyarız. Sorununuzu çözmek için elimizden geleni yapacağız. Lütfen daha fazla bilgi verebilir misiniz?",genel
+Bir sorun var.,"Endişelenmeyin, size yardımcı olmaktan mutluluk duyarız. Sorununuzu çözmek için elimizden geleni yapacağız. Lütfen daha fazla bilgi verebilir misiniz?",genel
+Ne yapacağımı bilmiyorum.,"Endişelenmeyin, size yardımcı olabiliriz. Lütfen karşılaştığınız durumu daha detaylı anlatır mısınız?",genel
+Bir hata aldım.,"Endişelenmeyin, size yardımcı olmaktan mutluluk duyarız.Hatanın tam olarak ne olduğunu belirtirseniz size daha iyi yardımcı olabiliriz.",teknik
+"Bir problemim var, çözüm arıyorum.",Yaşadığınız problemi daha iyi anlayabilmemiz için lütfen biraz daha detay verebilir misiniz?,genel
+Bir problemim var.,Yaşadığınız problemi daha iyi anlayabilmemiz için lütfen biraz daha detay verebilir misiniz?,genel
+Kargo sırasında bir hata aldım.,Karşılaştığınız sorun hakkında daha fazla detay verirseniz size yardımcı olmaktan memnun olurum.,teknik
+Kargo sırasında bir hata aldım bunu nasıl çözebiliriz,Karşılaştığınız sorun hakkında daha fazla detay verirseniz size yardımcı olmaktan memnun olurum.,teknik
+Sipariş sürecinde bir sorun oldu.,Yaşadığınız sorun hakkında daha fazla bilgi paylaşabilir misiniz? Size yardımcı olmak için buradayız.,genel
+Siparişim neden henüz gelmedi?,Siparişinizin durumu hakkında size bilgi vermek için sipariş numaranızı alabilir miyim?,genel
+Siparişimi iptal etmek istiyorum.,Siparişinizi iptal etmek istediğiniz için üzgünüz. İptal işlemi için sipariş numaranızı ve iptal nedeninizi belirtirseniz yardımcı olabiliriz.,genel
+Siparişimde değişiklik yapmak istiyorum.,Siparişinizde değişiklik yapmak istediğinizi anlıyorum. Sipariş numaranızı ve yapmak istediğiniz değişikliği belirtirseniz yardımcı olabiliriz.,genel
+Ödeme işleminde bir sorun yaşadım.,Ödeme işlemi sırasında hangi hatayı aldığınızı belirtirseniz size yardımcı olmak isterim.,ödeme
+Ödeme işleminde bir sorun.,Ödeme işlemi sırasında hangi hatayı aldığınızı belirtirseniz size yardımcı olmak isterim.,ödeme
+Ödeme işleminde sorun.,Ödeme işlemi sırasında hangi hatayı aldığınızı belirtirseniz size yardımcı olmak isterim.,ödeme
+Teslimatta bir problem yaşadım.,Teslimatla ilgili yaşadığınız problemi daha iyi anlayabilmemiz için lütfen detayları paylaşır mısınız?,genel
+Kargomda bir sorun var.,Kargonuzla ilgili karşılaştığınız sorun hakkında daha fazla bilgi verebilir misiniz? Size yardımcı olmaktan mutluluk duyarım.,genel
+Siparişimle ilgili bir sıkıntı var.,"Sorununuz hakkında daha fazla bilgi verirseniz, size en iyi şekilde yardımcı olabiliriz.",genel
+"Bir problemim var, çözüm arıyorum.",Yaşadığınız problemi daha iyi anlayabilmemiz için lütfen biraz daha detay verebilir misiniz?,genel
+Destek almak istiyorum.,Elbette! Hangi konuda destek almak istediğinizi belirtirseniz hemen yardımcı olabilirim.,genel
+Bir şeyler yanlış gitti.,Hangi konuda yanlış gittiğini belirtirseniz size daha iyi yardımcı olabiliriz.,genel
+Siparişimle ilgili bir sorun çıktı.,Siparişinizle ilgili daha fazla bilgi verebilir misiniz? Sorununuzu çözmek için buradayız.,genel
+Ürünleriniz hakkında daha fazla bilgi almak istiyorum.,"Hangi ürün hakkında bilgi almak istediğinizi belirtirseniz, size hemen yardımcı olabiliriz.",ürün
+Teslimat tarihi ne zaman?,Öncelikle hangi siparişiniz hakkında bilgi almak istemiştiniz ? Sipariş numaranızı girerek sipariş takibini yapabilir ve teslimat tarihini öğrenebilirsiniz.,genel
+Uygulamadan nasıl çıkış yaparım?,Sağ üst köşedeki “Profilim” sekmesine dokunun. Açılan sayfada “Çıkış Yap” butonuna basarak uygulamadan çıkış yapabilirsiniz.,teknik
+"Şifremi unuttum, nasıl sıfırlayabilirim?",Giriş ekranında “Şifremi Unuttum” bağlantısına dokunun. E-posta adresinizi girerek sıfırlama bağlantısını alın. Gelen bağlantıyı kullanarak yeni şifrenizi oluşturabilirsiniz.,genel
+Telefon numaramı değiştirebilir miyim?,"Evet, değiştirebilirsiniz. Profilim > Hesap Ayarları > Telefon Numarası bölümüne gidin. Yeni telefon numaranızı girip doğrulama kodunu onaylayarak değişikliği yapabilirsiniz.",genel
+E-posta adresimi güncelleyebilir miyim?,"Evet, e-posta adresinizi güncellemek için Profilim > Hesap Ayarları > E-posta Adresi sekmesine gidin. Yeni e-posta adresinizi girip doğrulama işlemini tamamlayarak değişiklik yapabilirsiniz.",genel
+Hesabımı başka bir telefonda açabilir miyim?,"Evet, aynı hesabı başka bir cihazda açabilirsiniz. Yeni cihazda uygulamayı indirip giriş bilgilerinizi kullanarak hesabınıza erişim sağlayabilirsiniz.",genel
+Hesabımı kalıcı olarak silebilir miyim?,"Hesabınızı kalıcı olarak silebilirsiniz. Profilim > Hesap Ayarları > Hesabı Sil sekmesine giderek talimatları takip edin. Hesap silme işlemi geri alınamaz, bu nedenle dikkatli olmalısınız.",genel
+Hesabımı nasıl silebilirim ?,Ana sayfa üstünde bulunan Sağ üst köşede bulunan 3 nokta ikonuna basıp hesabımı sil seçeneğini seçiniz.,genel
+"Giriş bilgilerimi unuttum, ne yapmalıyım?","Giriş ekranında “Şifremi Unuttum” bağlantısına dokunun. E-posta adresinizi girerek sıfırlama bağlantısı alın. Kullanıcı adınızı unuttuysanız, müşteri hizmetleriyle iletişime geçebilirsiniz.",genel
+Birden fazla hesap oluşturabilir miyim?,"Evet, farklı e-posta adresleri veya telefon numaralarıyla birden fazla hesap oluşturabilirsiniz. Ancak, her hesap için ayrı bilgiler sağlamanız gerekir.",genel
+Hesabımı nasıl güvenli tutabilirim?,"Güçlü bir şifre oluşturun, şifrenizi kimseyle paylaşmayın ve düzenli olarak şifrenizi değiştirin. Ayrıca, iki faktörlü kimlik doğrulamayı aktif edebilirsiniz.",genel
+"Hesabımın bir başkası tarafından kullanıldığını düşünüyorum, ne yapmalıyım?",Hemen şifrenizi değiştirin ve giriş yapılan cihazların listesini Profilim > Güvenlik Ayarları > Giriş Geçmişi sekmesinden kontrol edin. Şüpheli bir giriş görürseniz,genel
+Nasıl sipariş verebilirim?,Almak istediğiniz ürünü seçin ve “Sepete Ekle” butonuna dokunun. Sepete giderek ödeme işlemini tamamlayabilirsiniz.,genel
+Siparişimi nasıl takip ederim?,“Siparişlerim” sekmesine girerek siparişinizin durumunu ve kargo takibini görüntüleyebilirsiniz.,genel
+Hangi ödeme yöntemlerini kullanabilirim?,"Uygulamamızda kredi/banka kartı, kapıda ödeme ve dijital cüzdan yöntemlerini kullanabilirsiniz.",ödeme
+"Ödeme sırasında hata alıyorum, ne yapmalıyım?","İnternet bağlantınızı kontrol edin ve kart bilgilerinizi doğru girdiğinizden emin olun. Sorun devam ederse, müşteri hizmetlerimizle iletişime geçebilirsiniz.",ödeme
+Ürünleri nasıl arayabilirim?,Uygulamanın üst kısmındaki arama çubuğunu kullanarak ürün adını veya kategoriyi yazabilirsiniz.,ürün
+İndirimli ürünleri nasıl görebilirim?,Ana sayfada yer alan “Kampanyalar” veya “İndirimler” sekmesine dokunarak güncel indirimli ürünleri görüntüleyebilirsiniz.,ürün
+Siparişimdeki bir ürünü nasıl iade edebilirim?,"“Siparişlerim” sekmesine gidin, iade etmek istediğiniz ürünü seçin ve “İade Et” butonuna dokunun. Talimatları takip ederek iade sürecini başlatabilirsiniz.",ürün
+İade işlemim ne kadar sürede tamamlanır?,İade işlemleri genellikle 7-10 iş günü içerisinde tamamlanır.,genel
+Bildirimleri nasıl açıp kapatabilirim?,Profilim > Ayarlar > Bildirimler bölümünden istediğiniz bildirim türlerini açabilir veya kapatabilirsiniz.,genel
+Uygulama dilini nasıl değiştirebilirim?,Profilim > Ayarlar > Dil Tercihleri bölümüne giderek istediğiniz dili seçebilirsiniz.,teknik
+"Uygulama çok yavaş, nasıl hızlandırabilirim?","Cihazınızın depolama alanını kontrol edin, uygulamayı güncellediğinizden emin olun ve gereksiz verileri temizlemek için uygulama önbelleğini sıfırlayın.",teknik
+"Uygulama çöküyor, ne yapmalıyım?","Uygulamayı yeniden başlatmayı deneyin. Sorun devam ederse, uygulamayı güncelleyin veya kaldırıp yeniden yükleyin.",teknik
+Teknik destekle nasıl iletişim kurabilirim?,Yardım ve Destek bölümünden bize mesaj gönderebilir veya destek hattımızı arayabilirsiniz.,teknik
+İki faktörlü kimlik doğrulamayı nasıl etkinleştirebilirim?,Profilim > Güvenlik Ayarları > İki Faktörlü Kimlik Doğrulama sekmesine giderek adımları takip edebilirsiniz.,genel
+Şifremi değiştirdikten sonra eski cihazlardan çıkış yapar mı?,"Evet, şifre değişikliği yaptıktan sonra tüm cihazlardan otomatik olarak çıkış yapılır.",genel
+"Hesabımda şüpheli etkinlik fark ettim, ne yapmalıyım?",Profilim > Güvenlik Ayarları > Hesap Etkinlikleri sekmesine gidin ve giriş geçmişinizi kontrol edin. Şüpheli etkinlik gördüğünüzde hemen şifrenizi değiştirin ve destek ekibimize haber verin.,genel
+Uygulama girişlerinde SMS doğrulama alabilir miyim?,"Evet, iki faktörlü kimlik doğrulama ile girişlerde SMS doğrulama aktif hale gelir. Bu özelliği Güvenlik Ayarları'ndan etkinleştirebilirsiniz.",teknik
+Kargom hasarlı geldi.,Hasar nedeniyle üzgünüz. Ürünün fotoğraflarını çekerek “Hasarlı Ürün Bildir” seçeneği ile destek ekibimize iletin. Değişim veya iade işlemini hızla başlatacağız.,genel
+Siparişim yanlış bir adrese gönderilmiş.,Böyle bir hata için üzgünüz. Lütfen “Sipariş Detayları” sekmesinden adres bilgilerinizi kontrol edin ve destek ekibimize durumu bildirin.,genel
+Kargom teslim edildi diyor ama ben almadım.,Bu durum için üzgünüz. Lütfen “Teslimat Sorunu Bildir” seçeneğini kullanarak destek ekibimize ulaşın. Gerekirse teslimat kayıtlarını inceleyeceğiz.,genel
+Siparişimi iptal etmek istiyorum.,"Siparişinizi iptal etmek için “Siparişlerim” sekmesine gidin, iptal etmek istediğiniz siparişi seçin ve “İptal Et” seçeneğine dokunun.",genel
+Yanlış ürün gönderilmiş.,Yanlış ürün gönderimi için özür dileriz. Lütfen “Yanlış Ürün Bildir” seçeneğini kullanarak durumu destek ekibimize iletin. Hızlı bir şekilde çözüm sunacağız.,ürün
+Kargomun gecikmesi hakkında bilgi almak istiyorum.,Gecikme nedeniyle üzgünüz. Lütfen “Siparişlerim” sekmesinden kargo durumunu kontrol edin veya destek ekibimizle iletişime geçin.,genel
+Ürün iadesi yapmak istiyorum.,"Ürünü iade etmek için “Siparişlerim” sekmesine gidin, ilgili ürünü seçin ve “İade Et” seçeneğini kullanın. Size yardımcı olacağız.",ürün
+Kargomda eksik ürün var.,Eksik ürün nedeniyle üzgünüz. Lütfen “Eksik Ürün Bildir” seçeneği ile durumu destek ekibimize bildirin.,ürün
+Teslimat saatim değiştirildi mi?,Teslimat saatiyle ilgili değişiklikleri “Siparişlerim” sekmesinden kontrol edebilir veya destek ekibimize danışabilirsiniz.,genel
+İade sürecim ne zaman tamamlanır?,İade süreciniz genellikle 7-10 iş günü içerisinde tamamlanır. Daha fazla bilgi için destek ekibimize ulaşabilirsiniz.,genel
+Senin görevin nedir?,Benim görevim N61 Alışveriş Uygulamasında size destek sunmak ve sorularınızı yanıtlamaktır.,genel
+Uygulama hangi şirket tarafından geliştirildi?,N61 Alışveriş Uygulaması kullanıcı deneyimini ön planda tutan bir ekip tarafından geliştirildi.,genel
+Kargo durumumu nasıl öğrenebilirim?,“Siparişlerim” menüsüne girerek kargonuzun nerede olduğunu görebilirsiniz.,genel
+Siparişimi değiştirebilir miyim?,Siparişiniz henüz kargoya verilmediyse değişiklik yapılabilir. Lütfen sipariş numaranızı paylaşır mısınız?,genel
+Sipariş verirken hata oldu.,Sipariş oluşturma sırasında yaşadığınız sorunu detaylandırırsanız size daha iyi yardımcı olabilirim.,teknik
+Şifrem çalışmıyor ne yapmalıyım?,Giriş yapamıyorsanız “Şifremi Unuttum” seçeneğini kullanarak yeni şifre oluşturabilirsiniz.,genel
+Yanlış ürün geldi.,Yanlış ürün teslim edildiği için üzgünüz. Lütfen detayları bana aktarabilir misiniz, hemen ilgilenelim.,ürün
+Ürün açıklamaları yeterli mi?,Her ürün için detaylı açıklamalar sunulmaktadır. İlgilendiğiniz ürünün sayfasını inceleyebilirsiniz.,ürün
+İade etmek istediğim ürünün kutusu açıldı sorun olur mu?,Ürünün orijinal hali korunmuşsa ve zarar görmemişse iade süreci başlatılabilir.Bize Sipariş Numaranızı ve Ürün Kodunuzu paylaşırsanız size yardımcı olabiliriz.,ürün
+Sipariş numaramı unuttum, ne yapabilirim?,Kayıtlı e-posta adresinizle giriş yaparak “Siparişlerim” sekmesinden bilgilerinize ulaşabilirsiniz.,genel
+Siparişler ne kadar sürede teslim ediliyor?,Genellikle siparişler 2-4 iş günü içerisinde teslim edilir. Bulunduğunuz bölgeye göre değişiklik gösterebilir.,genel
+Ödemeyi tamamlayamıyorum.,Ödeme sırasında sorun yaşamanız durumunda internet bağlantınızı ve kart bilgilerinizi kontrol edin.,ödeme
+Kupon kodumu nasıl kullanabilirim?,Sepet sayfasında “Kupon Kodu” alanına kodu girerek indiriminizi uygulayabilirsiniz.,genel
+Üye olmadan alışveriş yapabilir miyim?,Şu an için sadece üye girişi ile alışveriş yapılabilmektedir.,genel
+Telefonum değişti, hesabıma nasıl erişebilirim?,Yeni telefonunuzdan uygulamayı indirerek e-posta ve şifrenizle giriş yapabilirsiniz.,genel
+Eski sipariş geçmişimi görebilir miyim?,Evet, “Siparişlerim” bölümünden önceki siparişlerinizi inceleyebilirsiniz.,genel
+Bir siparişi kaç dakika içinde iptal edebilirim?,Siparişiniz kargoya verilmeden önce, genellikle ilk 30 dakika içinde iptal edebilirsiniz.,genel
+Faturamı nereden indirebilirim?,“Sipariş Detayları” ekranından e-faturanızı görüntüleyebilir ve indirebilirsiniz.,genel
+Ürünü teslim aldım ama memnun kalmadım.,Üründen memnun kalmadıysanız iade sürecini başlatabiliriz. Yardımcı olmamı ister misiniz?,ürün
+Yanlış ürün geldi.,Yanlış ürün teslim edildiği için üzgünüz. Lütfen detayları bana aktarabilir misiniz, hemen ilgilenelim.,ürün
+Siparişim eksik geldi.,Yaşadığınız durum için üzgünüz. Eksik gelen ürün hakkında bilgi verir misiniz?,ürün
+Eksik gelen ürünüm sipariş numarası 12345649 olan siparişimdeki x ürünüdür., Yaşadığınız durum için üzgünüz. Sistemi kontrol edip eksik ürününüzü size göndereceğiz.,ürün
+Kargo çok gecikti hala teslim edilmedi.,Kargonuzun gecikmesi için üzgünüz. Sipariş numaranızı alabilir miyim?,kargo
+Sipariş no: 124987 ne zaman ulaşır?,Teşekkürler. Kargonuz şu anda dağıtım merkezinde. Tahmini teslim tarihi yarın.,kargo
+Ürünü iade ettim ama para iadesi olmadı.,Para iadesi işlem süreci hakkında yardımcı olabilmem için iade kodunuzu alabilir miyim?,ödeme
+İade kodum: 33221144, işlem ne durumda?,Kontrol ettim iade işleminiz banka sistemine iletilmiş. İade 3 iş günü içinde hesabınıza yansır.,ödeme
+Siparişi iptal etmek istiyorum.,Elbette, yardımcı olabilmem için sipariş numaranızı paylaşabilir misiniz?,genel
+Sipariş numaram 99887766, lütfen iptal edin.,Teşekkürler. Siparişiniz iptal edilmiştir ücret iadesi kartınıza yansıyacaktır.,genel
+Kupon kodum çalışmadı.,Bu durumda size yardımcı olabilmem için kullandığınız kupon kodunu paylaşır mısınız?,ödeme
+Kupon kodum: N61INDIRIM10, neden geçersiz?,Kodun geçerlilik süresi dolmuş olabilir. Alternatif geçerli kodlar için kampanyalar bölümünü kontrol edebilirsiniz.,ödeme
+Üye girişi yapamıyorum.,Sorunu çözmem için kayıtlı e-posta adresinizi paylaşabilir misiniz?,giriş
+E-posta adresim: ornek@mail.com, hala giriş yapamıyorum.,Teşekkürler. Sistemde hesabınızı kontrol ettim. Şifrenizi sıfırlamak isterseniz bağlantı gönderebilirim.,giriş
+Kargo hasarlı geldi.,Yaşanan durum için üzgünüz. Hasar fotoğrafını paylaşmanız mümkün mü?,kargo
+Fotoğrafı gönderdim, değişim olur mu?,Evet hasarlı ürününüz için değişim sürecini başlatıyoruz. Yeni ürün kısa sürede size ulaşacaktır.,kargo
+Faturam ulaşmadı.,Size yardımcı olabilmem için sipariş numaranızı paylaşabilir misiniz?,genel
+Sipariş numaram 123456, faturam gelmedi.,Faturanızı kontrol ettim e-posta adresinize yeniden gönderiyorum. Lütfen gelen kutunuzu kontrol edin.,genel
+Kargo hala elime ulaşmadı.,Gecikme için özür dileriz. Sipariş numaranızı paylaşabilir misiniz?,kargo
+Sipariş numaram 875342153.,Teşekkür ederim. Hemen kontrol ediyorum, lütfen birkaç saniye bekleyin.,kargo
+Ürünüm eksik geldi.,Eksik ürün için üzgünüz. Lütfen eksik olan ürünün adını ya da kodunu paylaşır mısınız?,ürün
+Eksik olan kod: 42112388.,Anladım, eksik ürününüzü not ettim. En kısa sürede kargoya verilecektir.,ürün
+İade yapmak istiyorum.,Elbette iade nedeninizi öğrenebilir miyim?,iade
+Ürün hasarlıydı.,Üzgünüz hasarlı ürün için iade işlemini hemen başlatalım. Lütfen sipariş numaranızı paylaşır mısınız?,iade
+Siparişimde değişiklik yapabilir miyim?,Siparişiniz henüz kargoya verilmediyse değişiklik yapabiliriz. Sipariş numaranızı alabilir miyim?,sipariş
+Numara 65781324.,Teşekkür ederim. Kontrol ediyorum, lütfen bir saniye bekleyin.,sipariş
+Kartımdan iki kez çekim olmuş.,Böyle bir durum yaşandığı için üzgünüz. Lütfen sipariş ya da işlem numaranızı paylaşır mısınız?,ödeme
+İşlem kodum: 3335121.,Teşekkürler, finans ekibimize iletiyorum. Size en kısa sürede dönüş sağlanacak.,ödeme
+Kargo firması ürünü getirmemiş ama teslim edildi gözüküyor.,Bunu hemen araştırıyorum. Sipariş numaranızı alabilir miyim?,kargo
+745623100.,Teşekkür ederim, durumu kargo firmasıyla iletişime geçerek netleştiriyoruz.,kargo
+Sipariş verirken hata alıyorum.,Yaşadığınız sorun için üzgünüz. Hangi sayfada bu hatayı aldığınızı ve mümkünse ekran görüntüsünü paylaşır mısınız?,teknik
+Kart bilgilerini girdikten sonra oluyor.,Anladım, teknik ekibimize iletiyorum. Alternatif olarak farklı bir tarayıcıyı da deneyebilirsiniz.,teknik
+Yanlış renk gönderilmiş.,Renk karışıklığı için özür dileriz. Doğru renk seçiminizi ve sipariş numaranızı paylaşır mısınız?,ürün
+Renk: Siyah olacaktı sipariş numarası : 991112223.,Sipariş numaranıza göre iade kodunuzu oluşturuyorum ,ürün
+Hediye paketi seçeneğiniz var mı?,Evet, siparişinizi tamamlarken "Hediye Paketi" seçeneğini işaretleyerek ürününüzü özel bir paketle gönderebiliriz.,genel
+Hediye paketi için ekstra ücret alınıyor mu?,Hediye paketi hizmetimiz ücretsizdir. Siparişiniz sırasında bu seçeneği işaretlemeniz yeterlidir.,genel
+Kredi kartımla taksitli ödeme yapamıyorum.,Üzgünüz bazı bankalar belirli kampanyalar dışında taksit seçeneği sunmayabilir. Hangi bankayı kullanıyorsunuz?,ödeme
+Yapı Kredi kartımla taksit seçeneği çıkmıyor.,Yapı Kredi kartlarıyla ilgili taksit seçenekleri bankanın politikalarına bağlıdır. Alternatif ödeme yöntemlerini denemenizi öneririz.,ödeme
+Taksitli ödeme seçeneği neden görünmüyor?,Taksitli ödeme seçenekleri, ürün kategorisine ve banka anlaşmalarına göre değişebilir. Detaylı bilgi için müşteri hizmetlerimizle iletişime geçebilirsiniz.,ödeme
+Şu anda hangi kampanyalarınız var?,Güncel kampanyalarımızı ana sayfamızdaki "Kampanyalar" bölümünden inceleyebilirsiniz.,genel
+Kampanyalar ne zamana kadar geçerli?,Kampanyalarımızın geçerlilik süreleri değişiklik gösterebilir. Lütfen ilgili kampanyanın detaylarını kontrol edin.,genel
+İndirim kodu nasıl kullanılır?,Sepetinizi oluşturduktan sonra ödeme sayfasında "İndirim Kodu" alanına kodunuzu girerek indirimi uygulayabilirsiniz.,genel
+İstediğim ürün stokta yok ne yapabilirim?, Ürünün stoğa ne zaman gireceğini öğrenmek için "Stok Bildirimi" seçeneğini kullanabilir veya benzer ürünleri inceleyebilirsiniz.,ürün
+Stokta olmayan ürünler için alternatif önerileriniz var mı?,Evet benzer özelliklere sahip ürünleri "Benzer Ürünler" bölümünde bulabilirsiniz.,ürün
+Stokta olmayan ürün tekrar ne zaman gelir?,Ürünün stok durumu tedarik sürecine bağlıdır. "Stok Bildirimi" seçeneğini kullanarak bilgilendirme alabilirsiniz.,ürün
+Üyeliğimi nasıl iptal edebilirim?,Profilinizdeki "Hesap Ayarları" bölümünden "Üyeliği İptal Et" seçeneğini kullanarak üyeliğinizi sonlandırabilirsiniz.,genel
+Aboneliğimi nasıl yenileyebilirim?,Abonelik sayfanızdan "Aboneliği Yenile" seçeneğini kullanarak işlemi gerçekleştirebilirsiniz.,genel
+Üyelik iptali sonrası verilerim silinir mi?,Üyelik iptali sonrası verileriniz belirli bir süre saklanır. Detaylı bilgi için gizlilik politikamızı inceleyebilirsiniz.,genel
+N61 hakkında ne biliyorsun?,N61 kullanıcıların mobil cihazlarından kolayca alışveriş yapabileceği siparişlerini takip edebileceği ve destek alabileceği bir platformdur.,genel
+Nasıl çalışıyorsun?,Kullanıcının sorusunu anlayıp buna uygun yanıtı veya işlemi (örneğin sipariş sorgulama, iade kodu alma) gerçekleştiren bir yapay zeka motoruyum.,genel
+Hangi işlemleri yapabilirsin?,Sipariş sorgulama sipariş iptali iade kodu oluşturma - teslimat takibi- ürün arama ve ödeme desteği gibi işlemlerde yardımcı olabilirim.,genel
+Siparişimi nasıl takip edebilirim?,Lütfen sipariş numaranızı paylaşın; ardından API üzerinden güncel teslimat durumunuzu size bildireceğim.,sipariş
+Sipariş iptal etmek istiyorum.,Elbette sipariş numaranızı verir misiniz? Ardından iptal işlemini başlatacağım.,iptal
+İade talebi oluşturmak istiyorum.,Sipariş numaranızı ve iade etmek istediğiniz ürün kodunu paylaşın; size iade kodunuzu vereceğim.,iade
+Ödeme ile ilgili bir sorun yaşıyorum.,Lütfen ödemenin gerçekleştiği sipariş numarasını ve hata mesajını paylaşın; size yardımcı olacağım.,ödeme
+Ürün araması yapmak istiyorum.,Aramak istediğiniz ürün adı veya kategorisini belirtir misiniz? Size uygun ürünleri listeleyebilirim.,ürün_ara
+Teslimat adresimi nasıl güncellerim?,Yeni teslimat adresinizi paylaşın; sistemde güncelleme yapıp onaylayacağım.,teslimat
+Kupon veya indirim kodu var mı?,Mevcut kampanya ve indirim kodlarını kontrol ediyorum lütfen birkaç saniye bekleyin.,kampanya
+Nasıl iade kodu alabilirim?,Sipariş numaranızı verir misiniz? API üzerinden iade kodunuzu alıp size ileteceğim.,iade
+Canlı destek almak istiyorum.,Canlı destek ekibimize yönlendiriliyorsunuz; lütfen birkaç dakika içinde sohbet penceresini kontrol edin.,destek
+Hoş geldiniz demek istiyorum,Merhaba! Ben N61 Alışveriş Uygulamasının yapay zekâsıyım. Size nasıl yardımcı olabilirim?,genel
+Siparişimin durumu nedir?,Sipariş numaranızı paylaşırsanız o numaraya ait güncel durum bilgisini API’den alıp bildiririm.,sipariş
+Ürünüm ne zaman kargoya çıkacak?,Sipariş numaranızı verirseniz kargo çıkış tarihini API’den sorgulayıp size ileteceğim.,teslimat
+Kargom gecikti,Ne yazık ki gecikme olmuş olabilir. Sipariş numarasını alıp kargo durumunu kontrol edeceğim.,teslimat
+Yanlış ürün gönderilmiş,Ürün bilgilerinizi ve sipariş numaranızı paylaşın; hatayı inceleyip iade veya değişim sürecini başlatayım.,iade
+İade süreci ne kadar sürer?,Genellikle iade onayı 2 iş günü içinde gerçekleşir. Sipariş numaranızı alıp süreci hızlandıracağım.,iade
+Promosyon kodu çalışmadı,Kullandığınız kodu ve sipariş tutarını paylaşın; geçerli kodları kontrol edip size yardımcı olayım.,kampanya
+Hesabımda oturum açamıyorum,Kullanıcı adınızı ve aldığınız hata mesajını belirtir misiniz? Giriş sorununu API’den kontrol edeyim.,hesap
+Şifremi unuttum,Üye olduğunuz e‑posta adresinizi paylaşırsanız şifre sıfırlama bağlantısını göndereyim.,hesap
+Ürün iadesi yapmak istiyorum,Sipariş ve ürün kodunu verir misiniz? Size iade kodu oluşturarak ileteceğim.,iade
+Yeni gelen indirimler nelerdir?,Mevcut aktif kampanyaları API’den çekiyorum birkaç saniye içinde size sunacağım.,kampanya
+Kargo adresimi değiştirmek istiyorum,Eski ve yeni adres bilgilerinizi paylaşın; adres güncellemesini gerçekleştireyim.,teslimat
+Siparişimde ek ürün eklemek istiyorum,Mevcut sepetinizi API’den çekip eklemek istediğiniz ürünü ekleyebilirim. Ürün kodunu verir misiniz?,sipariş
+Ödeme yöntemini değiştirmek istiyorum,Tercih ettiğiniz ödeme yöntemini söyler misiniz? Sistemde güncelleme yapıp onaylayacağım.,ödeme
+Ürünün stok durumu nasıl?,Ürün kodunu verirseniz Size yardımcı olmaktan memnun olurum.,ürün_ara
+Paylaştığın ürün kodu için teşekkürler iade işlemlerine başlıyorum,Size yardımcı olduğumuza sevindim.Başka bir sorunuz varsa sorabilirsiniz,iade
+İade kodu için teşekkürler,Rica ederim sorunsuz bir iade süreci dilerim. İhtiyaç duyduğunuzda yanınızdayız.Başka bir sorunuz varsa sorabilirsiniz,iade
+Sipariş numarası 12124135 olan üründe taksit seçeneğiniz bulunmamakta uyarısı alıyorum sebebi nedir?,Bankaların bazı ürünlere taksit seçeneği yoktur.,genel
+hangi banka hangi ürüne taksit yapıyor öğrenebilir miyim.,Bu bilgileri banka temsilcileri yada uygulamalarından öğrenebilirsiniz.,genel 
