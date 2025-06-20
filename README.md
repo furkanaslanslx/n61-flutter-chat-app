@@ -116,6 +116,15 @@ curl -X POST "http://localhost:8000/chat" \
 3. Commit yapın
 4. Pull Request açın
 
+## 👤 Geliştirici
+
+**Furkan Aslan**  
+🔗 GitHub: [@furkanaslanslx](https://github.com/furkanaslanslx)
+
+## 📄 Lisans
+
+Bu proje MIT lisansı altında lisanslanmıştır. Detaylar için [LICENSE](LICENSE) dosyasına bakın.
+
 ---
 
 ⭐ Bu projeyi beğendiyseniz star vermeyi unutmayın!
