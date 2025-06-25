@@ -96,6 +96,8 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                   onPressed: () async {
                     if (_formKey.currentState!.validate()) {
                       final userViewModel = Provider.of<UserViewModel>(context, listen: false);
+                      final scaffoldMessenger = ScaffoldMessenger.of(context);
+                      final navigator = Navigator.of(context);
 
                       bool success = await userViewModel.updateUserProfile(
                         userName: _nameController.text,
@@ -103,23 +105,23 @@ class _EditProfileScreenState extends State<EditProfileScreen> {
                         address: _addressController.text,
                       );
 
-                      if (mounted) {
-                        if (success) {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Profil güncellendi'),
-                              backgroundColor: Colors.green,
-                            ),
-                          );
-                          Navigator.pop(context);
-                        } else {
-                          ScaffoldMessenger.of(context).showSnackBar(
-                            const SnackBar(
-                              content: Text('Güncelleme başarısız'),
-                              backgroundColor: Colors.red,
-                            ),
-                          );
-                        }
+                      if (!mounted) return;
+
+                      if (success) {
+                        scaffoldMessenger.showSnackBar(
+                          const SnackBar(
+                            content: Text('Profil güncellendi'),
+                            backgroundColor: Colors.green,
+                          ),
+                        );
+                        navigator.pop();
+                      } else {
+                        scaffoldMessenger.showSnackBar(
+                          const SnackBar(
+                            content: Text('Güncelleme başarısız'),
+                            backgroundColor: Colors.red,
+                          ),
+                        );
                       }
                     }
                   },

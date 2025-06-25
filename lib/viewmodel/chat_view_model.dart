@@ -5,6 +5,7 @@ import 'dart:convert';
 
 class ChatViewModel extends ChangeNotifier {
   final ChatApi _api = ChatApi();
+  final PageContext? _pageContext;
 
   List<ChatMessage> _messages = [];
   bool _isLoading = false;
@@ -17,7 +18,7 @@ class ChatViewModel extends ChangeNotifier {
   bool get isLoading => _isLoading;
   bool get isApiConnected => _isApiConnected;
 
-  ChatViewModel() {
+  ChatViewModel({PageContext? pageContext}) : _pageContext = pageContext {
     _loadMessages();
     _loadSessionId();
     _checkApiConnection();
@@ -39,7 +40,7 @@ class ChatViewModel extends ChangeNotifier {
         await prefs.setString('session_id', _sessionId!);
       }
     } catch (e) {
-      print('Session ID yükleme hatası: $e');
+      debugPrint('Session ID yükleme hatası: $e');
       _sessionId = 'user-${DateTime.now().millisecondsSinceEpoch}';
     }
   }
@@ -64,6 +65,7 @@ class ChatViewModel extends ChangeNotifier {
         text,
         sessionId: _sessionId,
         history: _messages.where((msg) => msg.type != 'error').toList(), // Error mesajları hariç
+        pageContext: _pageContext, // Page context'i gönder
       );
 
       final botMessage = ChatMessage(
@@ -109,7 +111,7 @@ class ChatViewModel extends ChangeNotifier {
         await prefs.setString('session_id', _sessionId!);
       }
     } catch (e) {
-      print('Session ID kaydetme hatası: $e');
+      debugPrint('Session ID kaydetme hatası: $e');
     }
   }
 
@@ -119,7 +121,7 @@ class ChatViewModel extends ChangeNotifier {
       final messagesJson = _messages.map((m) => m.toJson()).toList();
       await prefs.setString('chat_messages', jsonEncode(messagesJson));
     } catch (e) {
-      print('Mesajları kaydetme hatası: $e');
+      debugPrint('Mesajları kaydetme hatası: $e');
     }
   }
 
@@ -133,7 +135,7 @@ class ChatViewModel extends ChangeNotifier {
         if (!_disposed) notifyListeners();
       }
     } catch (e) {
-      print('Mesajları yükleme hatası: $e');
+      debugPrint('Mesajları yükleme hatası: $e');
     }
   }
 

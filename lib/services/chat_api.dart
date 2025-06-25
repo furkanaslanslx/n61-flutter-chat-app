@@ -1,7 +1,9 @@
 // lib/services/chat_api.dart
 import 'dart:convert';
 import 'dart:io';
+import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
+import 'package:n61/m/product_model.dart';
 
 class ChatMessage {
   final String text;
@@ -39,15 +41,41 @@ class ChatMessage {
   }
 }
 
+class PageContext {
+  final String pageType; // "home", "product_detail", "category", etc.
+  final String? pageTitle;
+  final List<Product>? currentProducts; // Anasayfadaki ürünler
+  final Product? currentProduct; // Detay sayfasındaki ürün
+  final Map<String, dynamic>? additionalInfo; // Ek bilgiler
+
+  PageContext({
+    required this.pageType,
+    this.pageTitle,
+    this.currentProducts,
+    this.currentProduct,
+    this.additionalInfo,
+  });
+
+  Map<String, dynamic> toJson() {
+    return {
+      'page_type': pageType,
+      'page_title': pageTitle,
+      'current_products': currentProducts?.map((p) => p.toJson()).toList(),
+      'current_product': currentProduct?.toJson(),
+      'additional_info': additionalInfo,
+    };
+  }
+}
+
 class ChatApi {
   // Platform'a göre dinamik URL belirleme
   static String get _baseUrl {
     if (Platform.isAndroid) {
-      return "http://10.0.2.2:8000"; // Android emulator için
+      return "http://192.168.1.18:8000"; // Android emulator için
     } else if (Platform.isIOS) {
-      return "http://localhost:8000"; // iOS Simulator için
+      return "http://192.168.1.18:8000"; // iOS Simulator için
     } else {
-      return "http://localhost:8000"; // Masaüstü için
+      return "http://192.168.1.18:8000"; // Masaüstü için
     }
   }
 
@@ -63,12 +91,17 @@ class ChatApi {
       ).timeout(_timeout);
       return res.statusCode == 200;
     } catch (e) {
-      print('API ping hatası: $e');
+      debugPrint('API ping hatası: $e');
       return false;
     }
   }
 
-  Future<String> sendMessage(String message, {String? sessionId, List<ChatMessage>? history}) async {
+  Future<String> sendMessage(
+    String message, {
+    String? sessionId,
+    List<ChatMessage>? history,
+    PageContext? pageContext,
+  }) async {
     final uri = Uri.parse("$_baseUrl/chat");
 
     // Chat history'yi API formatına çevir
@@ -86,6 +119,7 @@ class ChatApi {
       "message": message,
       if (sessionId != null) "session_id": sessionId,
       if (apiHistory != null) "history": apiHistory,
+      if (pageContext != null) "page_context": pageContext.toJson(),
     });
 
     final res = await http

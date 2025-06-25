@@ -1,74 +1,68 @@
 import os
 import pandas as pd
-from sentence_transformers import SentenceTransformer
 from qdrant_client import QdrantClient
 from qdrant_client.http.models import VectorParams, Distance, PointStruct
+from sentence_transformers import SentenceTransformer
 
 # 1) Ayarlar
 QDRANT_HOST = "localhost"
 QDRANT_PORT = 6333
 INSTR_COLLECTION = "n61_instructions"
-ORDER_COLLECTION = "order_returns"
-EMBED_MODEL = "sentence-transformers/LaBSE"
+EMBED_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
 
-# 2) Qdrant client
-client = QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT)
-
-# 3) Embedding modeli
+# 2) Embedding modeli ve Qdrant Client
 model = SentenceTransformer(EMBED_MODEL)
+client = QdrantClient(host=QDRANT_HOST, port=QDRANT_PORT, timeout=120.0, prefer_grpc=True)
 
 # ————————————————————————————————
 # A) Sorular & Cevaplar (Embedding + Qdrant)
 # ————————————————————————————————
-df_inst = pd.read_csv(os.path.join("..", "data", "instructions.csv"), on_bad_lines='skip').dropna(subset=["question","answer"])
-# embed
-inst_texts = df_inst["question"].tolist()
-inst_embeds = model.encode(inst_texts, show_progress_bar=True)
+# CSV'yi ilk iki virgüle göre bölerek oku (her zaman 3 sütun)
+data = []
+with open(os.path.join("..", "data", "instructions.csv"), encoding="utf-8") as f:
+    header = f.readline().strip().split(",")
+    for line in f:
+        line = line.strip()
+        if not line:
+            continue
+        parts = line.split(",", 2)
+        while len(parts) < 3:
+            parts.append("")
+        data.append(parts)
+df = pd.DataFrame(data, columns=header)
 
-# recreate
-client.recreate_collection(
+print(df.head())
+print(df.shape)
+
+# Kolon kontrolü
+required_cols = {"question", "answer"}
+assert required_cols.issubset(df.columns), f"Eksik kolonlar: {required_cols - set(df.columns)}"
+
+# Boş veya eksik satırları atla
+filtered_rows = df.dropna(subset=["question", "answer"])
+
+# Sadece `question` sütununu embed ediyoruz, çünkü arama bu sütuna göre yapılacak.
+inst_vectors = model.encode(filtered_rows["question"].tolist(), show_progress_bar=True)
+
+if client.collection_exists(INSTR_COLLECTION):
+    client.delete_collection(INSTR_COLLECTION)
+client.create_collection(
     collection_name=INSTR_COLLECTION,
-    vectors_config=VectorParams(size=inst_embeds.shape[1], distance=Distance.COSINE),
+    vectors_config=VectorParams(
+        size=inst_vectors.shape[1],   # ← burada inst_vectors kullanın
+        distance=Distance.COSINE,
+    ),
 )
 
-# upsert batch'ler
+
 points = [
-    PointStruct(id=i,
-                vector=inst_embeds[i],
-                payload={
-                    "question": df_inst.loc[i,"question"],
-                    "answer":   df_inst.loc[i,"answer"]
-                })
-    for i in range(len(df_inst))
+    PointStruct(id=i, vector=inst_vectors[i].tolist(), payload={
+        "content": row["question"] + " " + row["answer"],
+        "question": row["question"],
+        "answer": row["answer"],
+        "question_type": row.get("question_type", "")
+    })
+    for i, row in filtered_rows.iterrows()
 ]
-for i in range(0, len(points), 256):
-    client.upsert(collection_name=INSTR_COLLECTION, points=points[i:i+256])
+client.upsert(collection_name=INSTR_COLLECTION, points=points, wait=True)
 print(f"[✓] {INSTR_COLLECTION} koleksiyonu yüklendi ({len(points)} kayıt).")
-
-
-# ————————————————————————————————
-# B) Sipariş & İade Kodu (Embedding + Qdrant)
-# ————————————————————————————————
-df_ord = pd.read_csv(os.path.join("..", "data", "order_returns.csv")).dropna()
-# Biz de burda "siparis_no" + "iade_kodu" birleşimini embed ediyoruz:
-ord_texts = (df_ord["siparis_no"].astype(str) + " " + df_ord["iade_kodu"]).tolist()
-ord_embeds = model.encode(ord_texts, show_progress_bar=True)
-
-client.recreate_collection(
-    collection_name=ORDER_COLLECTION,
-    vectors_config=VectorParams(size=ord_embeds.shape[1], distance=Distance.COSINE),
-)
-
-points = [
-    PointStruct(id=i,
-                vector=ord_embeds[i],
-                payload={
-                    "siparis_no": int(df_ord.loc[i,"siparis_no"]),
-                    "urun_adi":   df_ord.loc[i,"urun_adi"],
-                    "iade_kodu":  df_ord.loc[i,"iade_kodu"],
-                })
-    for i in range(len(df_ord))
-]
-for i in range(0, len(points), 256):
-    client.upsert(collection_name=ORDER_COLLECTION, points=points[i:i+256])
-print(f"[✓] {ORDER_COLLECTION} koleksiyonu yüklendi ({len(points)} kayıt).") 

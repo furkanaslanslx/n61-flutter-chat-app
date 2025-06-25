@@ -3,6 +3,7 @@ import re
 import json
 import os
 from typing import List, Optional
+import pandas as pd
 from fastapi import FastAPI, HTTPException, Response
 from fastapi.responses import JSONResponse
 from fastapi.middleware.cors import CORSMiddleware
@@ -17,9 +18,9 @@ QDRANT_HOST = "localhost"
 QDRANT_PORT = 6333
 INSTR_COLLECTION = "n61_instructions"
 ORDER_COLLECTION = "order_returns"
-EMBED_MODEL = "sentence-transformers/LaBSE"
-LLM_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct"
-GROQ_API_KEY = "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"          # .env içine alman önerilir
+EMBED_MODEL = "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+LLM_MODEL = "llama3-70b-8192"
+GROQ_API_KEY = "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"          # .env içine alman önerilir
 
 # ==== Session Store ====
 session_store = {}  # key: session_id, value: List[ChatMessage]
@@ -88,7 +89,7 @@ def get_order_return_code(query: str):
         if not match:
             return None
         vec  = model.encode([match.group(1)])[0]
-        hits = qdrant.search(ORDER_COLLECTION, query_vector=vec, limit=1, timeout=5)
+        hits = qdrant.search(ORDER_COLLECTION, query_vector=vec, limit=1)
         if not hits:
             return None
         return hits[0].payload["iade_kodu"]
@@ -99,7 +100,7 @@ def get_order_return_code(query: str):
 def get_similar_answer(query: str):
     try:
         vec  = model.encode([query])[0]
-        hits = qdrant.search(INSTR_COLLECTION, query_vector=vec, limit=3, timeout=5)
+        hits = qdrant.search(INSTR_COLLECTION, query_vector=vec, limit=3)
         if not hits:
             return "Üzgünüm, bu soruya uygun bir cevap bulamadım."
         return hits[0].payload["answer"]
@@ -108,10 +109,35 @@ def get_similar_answer(query: str):
         # Fallback cevap
         return "N61 mağazamızla ilgili sorularınızı yanıtlamaya çalışıyorum. Lütfen daha spesifik bir soru sorun."
 
-def llm_with_context(question: str, context: str, history: List[dict] = None):
+def llm_with_context(question: str, context: str, history: List[dict] = None, page_context: dict = None):
     try:
         # Konuşma geçmişini hazırla
         messages = []
+        
+        # Sayfa context'ine göre ürün bilgilerini hazırla
+        product_info = ""
+        if page_context:
+            page_type = page_context.get("page_type", "unknown")
+            
+            if page_type == "home" and page_context.get("current_products"):
+                products = page_context["current_products"]
+                product_info = f"\n\nAnasayfada şu anda görüntülenen ürünler:\n"
+                for i, product in enumerate(products[:10]):  # İlk 10 ürünü al
+                    product_info += f"{i+1}. {product.get('title', 'Ürün')} - ${product.get('price', 'N/A')} - {product.get('category', 'Kategori')}\n"
+            
+            elif page_type == "product_detail" and page_context.get("current_product"):
+                product = page_context["current_product"]
+                product_info = f"\n\nŞu anda görüntülenen ürün detayı:\n"
+                product_info += f"Ürün Adı: {product.get('title', 'N/A')}\n"
+                product_info += f"Fiyat: ${product.get('price', 'N/A')}\n"
+                product_info += f"Kategori: {product.get('category', 'N/A')}\n"
+                product_info += f"Açıklama: {product.get('description', 'N/A')}\n"
+                product_info += f"Marka: {product.get('brand', 'N/A')}\n"
+                product_info += f"Stok: {product.get('stock', 'N/A')}\n"
+                product_info += f"Rating: {product.get('rating', 'N/A')}\n"
+            
+            page_info = f"\n\nMevcut sayfa: {page_context.get('page_title', page_type)}"
+            product_info = page_info + product_info
         
         # Sistem mesajı
         system_prompt = f"""N61 mağazası müşteri hizmetleri asistanısın. 
@@ -120,11 +146,15 @@ Görevin:
 - Müşteri sorularını samimi ve yardımsever bir şekilde yanıtlamak
 - Verilen bağlam bilgilerini kullanarak doğru cevaplar vermek
 - Konuşma geçmişini dikkate alarak tutarlı cevaplar vermek
+- Müşterinin şu anda baktığı sayfa ve ürünler hakkında bilgi sahibi olarak yardım etmek
 
 Bağlam bilgileri:
 {context}
+{product_info}
 
-Lütfen kısa, net ve yardımcı cevaplar ver."""
+Lütfen kısa, net ve yardımcı cevaplar ver.
+Cevaplarında Türkçe dilini kullan.
+Eğer müşteri şu anda baktığı ürün hakkında soru soruyorsa, o ürünün bilgilerini kullan."""
 
         messages.append({"role": "system", "content": system_prompt})
         
@@ -152,18 +182,26 @@ Lütfen kısa, net ve yardımcı cevaplar ver."""
         return completion.choices[0].message.content
     except Exception as e:
         print(f"Groq LLM hatası: {e}")
-        # Fallback cevap
-        return f"Sorunuz: '{question}' hakkında şu bilgileri buldum: {context}"
+        # Fallback cevap - daha samimi
+        return "Merhaba! N61 müşteri hizmetleri asistanınızım. Size nasıl yardımcı olabilirim? Ürünlerimiz, siparişleriniz veya mağazamız hakkında sorularınızı yanıtlamaya hazırım."
 
 # ---------- API Şemaları ----------
 class ChatMessage(BaseModel):
     role: str  # "user" veya "assistant"
     content: str
 
+class PageContext(BaseModel):
+    page_type: str  # "home", "product_detail", "category", etc.
+    page_title: Optional[str] = None
+    current_products: Optional[List[dict]] = None  # Anasayfadaki ürünler
+    current_product: Optional[dict] = None  # Detay sayfasındaki ürün
+    additional_info: Optional[dict] = None  # Ek bilgiler
+
 class ChatRequest(BaseModel):
     message: str
     session_id: Optional[str] = None
     history: Optional[List[ChatMessage]] = None
+    page_context: Optional[PageContext] = None
 
 class ChatResponse(BaseModel):
     answer: str
@@ -218,9 +256,21 @@ def chat(req: ChatRequest):
                 headers={"Content-Type": "application/json; charset=utf-8"}
             )
 
-    # 2) KB + LLM with history
+    # 2) KB + LLM with page context
     sim_ans = get_similar_answer(question)
-    answer = llm_with_context(question, f"- {sim_ans}", session_history)
+    
+    # Page context'i dict'e çevir
+    page_context_dict = None
+    if req.page_context:
+        page_context_dict = {
+            "page_type": req.page_context.page_type,
+            "page_title": req.page_context.page_title,
+            "current_products": req.page_context.current_products,
+            "current_product": req.page_context.current_product,
+            "additional_info": req.page_context.additional_info
+        }
+    
+    answer = llm_with_context(question, f"- {sim_ans}", session_history, page_context_dict)
     
     # Bot cevabını session'a ekle
     add_to_session(session_id, "assistant", answer)

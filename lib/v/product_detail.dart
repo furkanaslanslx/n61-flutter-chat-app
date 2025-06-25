@@ -1,8 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:n61/m/product_model.dart';
+import 'package:n61/v/chat_page.dart';
+import 'package:n61/services/chat_api.dart';
 
 class ProductDetail extends StatefulWidget {
-  const ProductDetail({super.key});
+  const ProductDetail({super.key, required this.product});
+  final Product product;
 
   @override
   State<ProductDetail> createState() => _ProductDetailState();
@@ -15,41 +19,63 @@ class _ProductDetailState extends State<ProductDetail> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const CupertinoNavigationBar(
-        middle: Text('Örgü Midi Elbise'),
+      appBar: CupertinoNavigationBar(
+        middle: Text(widget.product.title),
+        trailing: IconButton(
+          icon: const Icon(Icons.chat),
+          onPressed: () {
+            final productContext = PageContext(
+              pageType: 'product_detail',
+              pageTitle: 'Ürün Detayı - ${widget.product.title}',
+              currentProduct: widget.product,
+            );
+
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (_) => ChatPage(pageContext: productContext),
+              ),
+            );
+          },
+        ),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Image.asset(
-            alignment: Alignment.topCenter,
-            'assets/women_products/(3).webp',
+          Image.network(
+            widget.product.thumbnail,
             height: 400,
             width: double.infinity,
             fit: BoxFit.cover,
+            errorBuilder: (context, error, stackTrace) => Container(
+              height: 400,
+              width: double.infinity,
+              color: Colors.grey[300],
+              child: const Icon(Icons.broken_image, size: 50),
+            ),
           ),
           Container(
             padding: const EdgeInsets.all(20),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  '2349.99 ₺',
-                  style: TextStyle(
+                Text(
+                  '\$${widget.product.price.toStringAsFixed(2)}',
+                  style: const TextStyle(
                     fontSize: 36,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const Text(
-                  'Örgü Midi Elbise',
-                  style: TextStyle(
+                Text(
+                  widget.product.title,
+                  style: const TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                const Text(
-                  'Bu örgü midi elbise, zarif ve şık tasarımıyla gardırobunuzun vazgeçilmez bir parçası olacak. Yumuşak ve kaliteli kumaşı sayesinde gün boyu rahatlık sunar. Hem günlük kullanımda hem de özel günlerde tercih edebileceğiniz bu elbise, modern ve klasik tarzı bir araya getiriyor. Farklı aksesuarlarla kombinleyerek her mevsim kullanabilirsiniz. Şık ve rahat bir görünüm için dolabınızda mutlaka yer açın.',
-                  style: TextStyle(
+                Text(
+                  widget.product.description,
+                  style: const TextStyle(
                     fontSize: 14,
                   ),
                 ),

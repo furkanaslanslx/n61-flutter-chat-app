@@ -221,7 +221,7 @@ ORDER_COLLECTION = "order_returns"
 ### 4.3 LLM Model Ayarları
 
 ```python
-LLM_MODEL = "meta-llama/llama-4-scout-17b-16e-instruct"
+LLM_MODEL = "llama3-70b-8192"
 EMBED_MODEL = "sentence-transformers/LaBSE"
 ```
 

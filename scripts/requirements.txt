@@ -5,3 +5,8 @@ qdrant-client
 groq
 python-dotenv
 pandas
+langchain
+langchain-community
+langchain-groq
+langchain-huggingface
+langchain-qdrant

@@ -1,54 +1,28 @@
 {
-  "user-1750431702738": [
+  "user-1750747924427": [
     {
       "role": "user",
-      "content": "selam been furkan"
+      "content": "Merhaba bu ürün hakkında bilgi verir misin"
     },
     {
       "role": "assistant",
-      "content": "Merhaba! Nasıl yardımcı olabilirim?"
+      "content": "Blue & Black Check Shirt hakkında bilgi vermek isterim. Bu erkek gömleği, klasik check desenli ve oldukça rahat bir ürün. Yüksek kaliteli kumaştan yapılmış ve hem günlük hem de yarı resmi olaylar için uygun. Şu anda fiyatı $29.99 ve 38 adet stoklarımızda mevcut. Müşterilerimizin yorumlarına göre ortalama puanı 3.64. Siz bunun hakkında daha fazla bilgi almak istiyor musunuz?"
     },
     {
       "role": "user",
-      "content": "benim ismim ne"
+      "content": "hangi ürünler mevcut"
     },
     {
       "role": "assistant",
-      "content": "Özür dilerim, sizin ismimizi bilmiyorum. Bana Furkan ismini siz verdiğiniz için öyle hitap ettim. Gerçek ismınızı bilmiyorum. Nasıl yardımcı olabilirim?"
+      "content": "Şu anda anasayfamızda çeşitli güzellik ve parfüm ürünleri mevcut. Liste olarak şu şekilde:\n\n1. Essence Mascara Lash Princess - $9.99 - güzellik\n2. Eyeshadow Palette with Mirror - $19.99 - güzellik\n3. Powder Canister - $14.99 - güzellik\n4. Red Lipstick - $12.99 - güzellik\n5. Red Nail Polish - $8.99 - güzellik\n6. Calvin Klein CK One - $49.99 - parfüm\n7. Chanel Coco Noir Eau De - $129.99 - parfüm\n8. Dior J'adore - $89.99 - parfüm\n9. Dolce Shine Eau de - $69.99 - parfüm\n10. Gucci Bloom Eau de - $79.99 - parfüm\n\nHangi ürün hakkında bilgi almak isterseniz, lütfen belirtin!"
     },
     {
       "role": "user",
-      "content": "daha önce kaç mesaj attım sana"
+      "content": "erkek ürünlerinde neler mevcut"
     },
     {
       "role": "assistant",
-      "content": "Daha önce 3 mesaj attınız bana."
-    },
-    {
-      "role": "user",
-      "content": "daha önceki mesajları yaz"
-    },
-    {
-      "role": "assistant",
-      "content": "Daha önceki mesajlarınızı hatırlatayım:\n\n1. \"selam been furkan\"\n2. \"benim ismim ne\"\n3. \"daha önce kaç mesaj attım sana\"\n\nKısaca hatırlatmak istedim!"
-    }
-  ],
-  "user-1750431822237": [
-    {
-      "role": "user",
-      "content": "sana kaç mesaj attım"
-    },
-    {
-      "role": "assistant",
-      "content": "Bana 2 mesaj attın."
-    },
-    {
-      "role": "user",
-      "content": "attığım mesajları yaz"
-    },
-    {
-      "role": "assistant",
-      "content": "İlk mesajın: \nsana kaç mesaj attım\n\nİkinci mesajın: \nattığım mesajları yaz"
+      "content": "Şu anda erkek ürünlerinde hiçbir ürün mevcut değil. Anasayfamızda sadece güzellik ve parfüm ürünleri bulunuyor. Eğer erkek ürünleri arıyorsanız, lütfen başka kategorilere bakın veya bizimle iletişime geçin, yardımcı olabiliriz."
     }
   ]
 }

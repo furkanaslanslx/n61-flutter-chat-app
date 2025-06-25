@@ -1,5 +1,6 @@
-import 'package:shared_preferences/shared_preferences.dart';
 import 'dart:convert';
+import 'package:flutter/foundation.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SharedPreferencesService {
   static const String _isLoggedInKey = 'isLoggedIn';
@@ -76,7 +77,7 @@ class SharedPreferencesService {
 
       return true;
     } catch (e) {
-      print('Register error: $e');
+      debugPrint('Register error: $e');
       return false;
     }
   }
@@ -100,7 +101,7 @@ class SharedPreferencesService {
       await setCurrentUser(user);
       return true;
     } catch (e) {
-      print('Giriş hatası: $e');
+      debugPrint('Giriş hatası: $e');
       return false;
     }
   }
@@ -135,7 +136,7 @@ class SharedPreferencesService {
 
       return true;
     } catch (e) {
-      print('Kullanıcı silme hatası: $e');
+      debugPrint('Kullanıcı silme hatası: $e');
       return false;
     }
   }
@@ -168,7 +169,7 @@ class SharedPreferencesService {
       }
       return false;
     } catch (e) {
-      print('Update user error: $e');
+      debugPrint('Update user error: $e');
       return false;
     }
   }

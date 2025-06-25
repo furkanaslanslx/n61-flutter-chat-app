@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import '../services/shared_preferences_service.dart';
 
@@ -30,7 +31,7 @@ class UserViewModel extends ChangeNotifier {
         notifyListeners();
       }
     } catch (e) {
-      print('Login status check error: $e');
+      debugPrint('Login status check error: $e');
     }
   }
 
@@ -39,7 +40,7 @@ class UserViewModel extends ChangeNotifier {
       _usersList = await SharedPreferencesService.getUsersList();
       notifyListeners();
     } catch (e) {
-      print('Load users list error: $e');
+      debugPrint('Load users list error: $e');
     }
   }
 
@@ -52,7 +53,7 @@ class UserViewModel extends ChangeNotifier {
       }
       return success;
     } catch (e) {
-      print('Login error: $e');
+      debugPrint('Login error: $e');
       return false;
     }
   }
@@ -78,7 +79,7 @@ class UserViewModel extends ChangeNotifier {
       }
       return success;
     } catch (e) {
-      print('Register error: $e');
+      debugPrint('Register error: $e');
       return false;
     }
   }
@@ -90,7 +91,7 @@ class UserViewModel extends ChangeNotifier {
       _currentUser = null;
       notifyListeners();
     } catch (e) {
-      print('Logout error: $e');
+      debugPrint('Logout error: $e');
     }
   }
 
@@ -107,7 +108,7 @@ class UserViewModel extends ChangeNotifier {
       }
       return false;
     } catch (e) {
-      print('Delete account error: $e');
+      debugPrint('Delete account error: $e');
       return false;
     }
   }
@@ -133,7 +134,7 @@ class UserViewModel extends ChangeNotifier {
       }
       return false;
     } catch (e) {
-      print('Update profile error: $e');
+      debugPrint('Update profile error: $e');
       return false;
     }
   }

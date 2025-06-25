@@ -29,7 +29,7 @@ class ChatBubble extends StatelessWidget {
                 borderRadius: BorderRadius.circular(20),
                 boxShadow: [
                   BoxShadow(
-                    color: Colors.black.withOpacity(0.1),
+                    color: Colors.black.withValues(alpha: .1),
                     blurRadius: 4,
                     offset: const Offset(0, 2),
                   ),
@@ -132,10 +132,10 @@ class _TypingIndicatorState extends State<TypingIndicator> with TickerProviderSt
       margin: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
       child: Row(
         children: [
-          CircleAvatar(
+          const CircleAvatar(
             radius: 20,
             backgroundColor: Colors.green,
-            child: const Icon(
+            child: Icon(
               Icons.smart_toy,
               color: Colors.white,
               size: 20,
